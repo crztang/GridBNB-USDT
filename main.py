@@ -4,7 +4,7 @@ import traceback
 import platform
 import sys
 from trader import GridTrader
-from helpers import LogConfig, send_pushplus_message
+from helpers import LogConfig, send_message
 from web_server import start_web_server
 from exchange_client import ExchangeClient
 from config import TradingConfig, SYMBOLS_LIST
@@ -77,7 +77,7 @@ async def run_trader_for_symbol(symbol: str, exchange_client: ExchangeClient):
     except Exception as e:
         error_msg = f"交易对 {symbol} 的任务失败: {str(e)}\n{traceback.format_exc()}"
         logging.error(error_msg)
-        send_pushplus_message(error_msg, f"致命错误 - {symbol}")
+        send_message(error_msg, f"致命错误 - {symbol}")
 
 async def main():
     shared_exchange_client = None  # 在try块外部定义

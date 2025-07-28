@@ -29,6 +29,9 @@ class Settings(BaseSettings):
 
     # --- 可选配置 (从 .env 读取) ---
     PUSHPLUS_TOKEN: Optional[str] = None
+    NOTIFICATION_PLATFORM: Optional[str] = None
+    TELEGRAM_TOKEN: Optional[str] = None
+    TELEGRAM_CHANNEL_ID: Optional[str] = None
 
     # 理财功能开关
     ENABLE_SAVINGS_FUNCTION: bool = True
